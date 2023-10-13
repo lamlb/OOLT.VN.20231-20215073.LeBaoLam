@@ -1,0 +1,19 @@
+1) Nếu chọn option "Cancel" chương trình sẽ trả về "You've chosen No":
+    -Trong trường hợp chọn "Cancel" trong hộp thoại xác nhận, giá trị trả về sẽ là JOptionPane.CANCEL_OPTION. 
+    -Vì vậy, nếu chọn "Cancel", điều kiện option == JOptionPane.YES_OPTION sẽ sai và do đó chuỗi "No" sẽ được kết hợp với thông điệp "You've chosen:". 
+    - Điều này làm cho chương trình hiển thị "You've chosen: No" khi chọn "Cancel".
+
+2) only two options: “Yes” and “No”:
+import javax.swing.JOptionPane;
+public class aaa{
+    public static void main(String[] args){
+        Object[] options = {"Yes, I do", "No, I don't"};
+        int option = JOptionPane.showOptionDialog(null,
+                    "Do you want to change to the first class ticket",
+                    "Choose an option", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        JOptionPane.showMessageDialog(null, "You've chosen: " 
+                    + (option == JOptionPane.YES_OPTION ? "Yes, I do" : "No, I don't"));
+        System.exit(0);
+    }
+}
