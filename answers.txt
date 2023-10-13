@@ -5,7 +5,7 @@
 
 2) only two options: “Yes” and “No”:
 import javax.swing.JOptionPane;
-public class aaa{
+public class ChoosingOption_update{
     public static void main(String[] args){
         Object[] options = {"Yes, I do", "No, I don't"};
         int option = JOptionPane.showOptionDialog(null,
