@@ -3,7 +3,8 @@
     -Vì vậy, nếu chọn "Cancel", điều kiện option == JOptionPane.YES_OPTION sẽ sai và do đó chuỗi "No" sẽ được kết hợp với thông điệp "You've chosen:". 
     - Điều này làm cho chương trình hiển thị "You've chosen: No" khi chọn "Cancel".
 
-2) only two options: “Yes” and “No”:
+2) Update: only two options: “Yes” and “No”:
+
 
 import javax.swing.JOptionPane;
 public class ChoosingOption_update{
