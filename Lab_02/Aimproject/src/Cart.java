@@ -44,8 +44,19 @@ public class Cart {
 				itemsOrder.remove(disc);
 				qtyOrdered--;
 				System.out.printf("The disc %s has been removed\n",disc.getTitle());
-			} else System.out.println("No found");
+			} else System.out.println("Not found");
 		} else System.out.println("Empty cart");
 		
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+		for (DigitalVideoDisc dvd : dvdList) {
+			this.addDigitalVideoDisc(dvd);
+		}
+	}
+
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		this.addDigitalVideoDisc(dvd1);
+		this.addDigitalVideoDisc(dvd2);
 	}
 }
