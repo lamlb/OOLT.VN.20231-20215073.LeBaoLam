@@ -14,7 +14,7 @@ public class Aims {
 				"Animation","Roger Allder", 87, 18.99f);
 		anOrder.addDigitalVideoDisc(dvd3);
 		
-		//Overloading by differing types of parameter
+				//Overloading by differing types of parameter
 				DigitalVideoDisc[] dvdList = new DigitalVideoDisc[] { dvd1, dvd2, dvd3 };
 				anOrder.addDigitalVideoDisc(dvdList);
 
@@ -34,7 +34,7 @@ public class Aims {
 		        //Calculate total Cost
 		        System.out.printf("     Total Cost: %14.2f \n", anOrder.totalCost());
 		        
-		      //Overloading by differing the number of parameters
+		        //Overloading by differing the number of parameters
 				System.out.println();
 				anOrder.addDigitalVideoDisc(dvd2, dvd3);
 				anOrder.displayCart();

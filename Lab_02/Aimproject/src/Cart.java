@@ -21,15 +21,6 @@ public class Cart {
         }
 	}
 	
-	public void displayCart() {
-	    System.out.println("------- Cart Display -------");
-	    int index = 1;
-	    for (DigitalVideoDisc disc : itemsOrder){
-	        System.out.printf("%-4d %-20s %-5.2f \n", index, disc.getTitle(), disc.getCost());
-	        index++;
-	    }
-	}
-	
 	public double totalCost() {
 		double total = 0;
 		for (DigitalVideoDisc disc : itemsOrder){
@@ -50,13 +41,29 @@ public class Cart {
 	}
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
-		for (DigitalVideoDisc dvd : dvdList) {
-			this.addDigitalVideoDisc(dvd);
+		int n = dvdList.length;
+		if(n == 0 || (n + this.getQtyOrder()) >= 20) {
+			System.out.println("The cart is almost full");
+			return;
+		}
+		else {
+			for(int i = 0; i < n; i++) {
+				addDigitalVideoDisc(dvdList[i]);
+			}
+			System.out.println("The disc has been added");
 		}
 	}
 
 	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
 		this.addDigitalVideoDisc(dvd1);
 		this.addDigitalVideoDisc(dvd2);
+	}
+	public void displayCart() {
+	    System.out.println("------- Cart Display -------");
+	    int index = 1;
+	    for (DigitalVideoDisc disc : itemsOrder){
+	        System.out.printf("%-4d %-20s %-5.2f \n", index, disc.getTitle(), disc.getCost());
+	        index++;
+	    }
 	}
 }
