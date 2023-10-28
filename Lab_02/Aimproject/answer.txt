@@ -1,0 +1,51 @@
+Question 1: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+
+    Có, Java cho phép tạo nhiều phương thức khởi tạo trong một lớp miễn là chúng có các ký hiệu phương thức khác nhau. Tính năng này được gọi là nạp chồng hàm tạo.
+Nạp chồng hàm tạo cho phép tạo các hàm với các tham số khác nhau, cho phép khởi tạo các đối tượng theo nhiều cách khác nhau. Java phân biệt giữa các hàm khác nhau dựa trên số lượng và loại tham số mà chúng chấp nhận.
+Đây là ví dụ về cách có thể tạo hai hàm cho một lớp DVD, một hàm lấy tiêu đề làm tham số và hàm kia lấy danh mục:
+
+    public class DVD {
+    private String title;
+    private String category;
+
+    public DVD(String title) {
+        this.title = title;
+    }
+
+    public DVD(String title, String category) {
+        this.title = title;
+        this.category = category;
+    }
+}
+ => " DVD" là lớp có hai hàm tạo, một hàm chỉ lấy tiêu đề và hàm kia nhận cả tiêu đề và danh mục.
+===================================================================================================================================================================================================================================
+
+Question 2: Is JAVA a Pass by Value or a Pass by Reference programming language?
+
+Java là ngôn ngữ lập trình chỉ truyền tham trị. Trong java khi chúng ta thực hiện gọi tới các phương thức, khi đó java sẽ tạo ra bản sao của nó thay vì bản gốc để thực hiện các chức năng trong phương thức được gọi.
+
+===================================================================================================================================================================================================================================
+
+Question 3:
+Try to add a method addDigitalVideoDisc which allows to pass an arbitrary number of arguments for dvd. Compared to an array parameter. What do you prefer in this case?
+
+-   Em thích phương thức addDigitalVideoDisc mà cho mảng tham số (array parameter). cách này em thấy khá tiện và quen thuộc
+- Nhưng có thể trong vài trường hợp, thì addDigitalVideoDisc cái mà truyền số lượng đối số tùy ý cho dvd có thể sẽ tốt hơn
+
+===================================================================================================================================================================================================================================
+Question 4:
+
+ - After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two
+objects still remain?
+
+    Trong Java, khi truyền các đối tượng cho một phương thức, ta đang truyền một bản sao của tham chiếu đến các đối tượng đó chứ không phải bản thân các đối tượng. 
+Điều này có nghĩa là nếu một phương thức như "swap(jungleDVD, cinderellaDVD)" hoán đổi các tham chiếu bên trong phương thức đó, thì điều đó sẽ không ảnh hưởng đến các đối tượng ban đầu bên ngoài phương thức đó.
+
+ - After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is
+the title of the JungleDVD changed?
+
+    Bởi vì phương thức ChangeTitle trước tiên lưu trữ tiêu đề cũ của DVD.
+        - Sau đó, nó đặt tiêu đề của dvd bằng giá trị của tham số tiêu đề, tạo một đối tượng DigitalVideoDisc mới với tiêu đề cũ.
+        - Tuy nhiên, đối tượng mới được tạo này là cục bộ của phương thức và không ảnh hưởng đến đối tượng JungleDVD bên ngoài phương thức.
+        - sau lời gọi hàm changeTitle(), thông qua object tham chiếu trỏ đến object jungleDVD thì title của object này đã được thay đổi thông qua message setTitle().
+
