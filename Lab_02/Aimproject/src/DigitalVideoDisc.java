@@ -1,10 +1,15 @@
 public class DigitalVideoDisc {
 	
+	private int id;
 	private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
+    
+    public int getId() {
+    	return id;
+    }
 	public String getTitle() {
 		return title;
 	}
