@@ -1,0 +1,65 @@
+1. Write a toString() method for the DigitalVideoDisc class. What should be the return type of
+this method?
+-> In Java, the toString() method is used to provide a string representation of an object. 
+For the DigitalVideoDisc class, the toString() method can be implemented to return a string that represents the relevant information about dics 
+The return type of this method should be String.
+
+2. Which classes are aggregates of other classes? Checking all constructors of whole classes if they
+initialize for their parts?
+
+- The child class will contain the parent class, methods and properties in the parent class will be initialized in the child class
+	+In object-oriented programming, when a child class extends a parent class, it inherits the properties and methods of the parent class. 
+	+The child class can then choose to override or extend these inherited elements, and it may also initialize them with specific values.
+
+3. When overriding the equals() method of the Object class, you will have to cast the
+Object parameter obj to the type of Object that you are dealing with. For example, in the
+Media class, you must cast the Object obj to a Media, and then check the equality of the two
+objects’ attributes as the above requirements (i.e. title for Media; title and length for
+Track). If the passing object is not an instance of Media, what happens?
+	If the passing object is not an instance of Media when you override the equals() method in the Media class and 
+attempt to cast the Object parameter obj to a Media, a ClassCastException will be thrown at runtime.
+
+4. What class should implement the Comparable interface?
+- The class whose instances you want to compare should implement the Comparable interface. In this context, the Media class should implement the Comparable interface.
+
+public class Media implements Comparable<Media> {
+    // ... other fields and methods ...
+
+    @Override
+    public int compareTo(Media otherMedia) {
+        // Implementation for comparing instances of Media
+        // ...
+    }
+}
+
+5. In those classes, how should you implement the compareTo() method to reflect the ordering that we want?
+- We should compare in order of title then price or price then title.
+
+6. Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+- No, with the Comparable interface, you can only define one natural ordering. 
+If you want to have two different ordering rules, you should use the Comparator approach as you initially described. 
+The Comparable interface is for defining a single, default ordering.
+
+7. Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+modified code:
+	
+package AimsProject.src.hust.soict.hedspi.aims.media;
+
+import java.util.Comparator;
+
+public class newMediaComparator implements Comparator<Media> {
+    public MediaComparatorByTitleCost() {
+    }
+
+    @Override
+    public int compare(Media m1, Media m2) {
+        if((m1.getTitle().equals(m2.getTitle())) && (m1.getLength() != m2.getLength())) {
+            return int.compare(m1.getLength(),m2.getLength());
+        }
+	else if ((m1.getTitle().equals(m2.getTitle())) && (m1.getLength() == m2.getLength())){
+	    return float.compare(m1.getCost(),m2.getCost());	
+	}
+	else return m1.getTitle().compareTo(m2.getTitle());
+    }
+}
+
