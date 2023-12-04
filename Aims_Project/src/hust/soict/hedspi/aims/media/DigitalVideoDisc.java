@@ -3,6 +3,9 @@ package hust.soict.hedspi.aims.media;
 public class DigitalVideoDisc extends Disc implements Playable {
 	// private static int nbDigitalVideoDiscs = 0;
 		
+	public DigitalVideoDisc(int id, String title, String category, float cost) {
+		super(id, title, category, cost);
+	}
 	public DigitalVideoDisc(int id, String title, String director, int length) {
 		super(id, title, director, length);
 	}
