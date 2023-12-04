@@ -1,0 +1,62 @@
+Questions:
+1.3 Compare Swing and AWT elements:
+Programming with AWT and Swing is quite similar (similar elements including container/components,
+and event-handling). However, there are some differences that you need to note:
+- Compare the top-level containers in Swing and AWT
+- Compare the class name of components in AWT and the corresponding class’s name in Swing
+- Compare the event-handling of Swing and AWT applications
+The resulting appearances of the applications developed using Swing and AWT might be different as well.
+Make comparisons.
+=====================================================================================================================================
+
+1. Top-Level Containers:
+- AWT:
+AWT uses heavyweight components, and the top-level container is usually Frame.
+Examples: Frame, Dialog, Applet.
+- Swing:
+Swing uses lightweight components, and the top-level container is usually JFrame.
+Examples: JFrame, JDialog, JApplet.
+Comparison: The key difference is in the nature of components—AWT components are heavyweight, while Swing components are lightweight.
+
+2. Class Names of Components:
+- AWT:
+AWT components have simple names, such as Button, TextField, and Label.
+- Swing:
+Swing components have names prefixed with "J," such as JButton, JTextField, and JLabel.
+Comparison: Swing components are derived from their AWT counterparts but have an "J" prefix and often offer more features and flexibility.
+
+3. Event Handling:
+- AWT:
+In AWT, event handling is based on the delegation model.
+Components themselves are responsible for handling their own events.
+The delegation model requires implementing listener interfaces such as ActionListener, MouseListener, etc.
+Event handling methods are named and defined within the component class.
+Ex:
+button.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        // Event handling code
+    }
+});
+- Swing
+Swing also uses the delegation model but extends it with a more flexible and powerful event-handling mechanism.
+Swing components often use a separate set of listener interfaces prefixed with "Listener" (e.g., ActionListener, MouseListener).
+Swing provides adapter classes for these interfaces, allowing developers to implement only the methods they need.
+Event handling code is generally externalized from the component, promoting better organization and reuse.
+EX:
+button.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        // Event handling code
+    }
+});
+
+4. Resulting Appearances:
+- AWT:
+AWT components rely on the native widgets of the underlying platform.
+The look and feel of AWT components may vary across different operating systems.
+AWT components are heavyweight, meaning they are directly rendered by the operating system.
+- Swing:
+Swing components are designed to have a consistent appearance across different platforms (platform-independent).
+Swing components are lightweight, as they are painted directly by Java and not dependent on the underlying operating system.
+Swing supports pluggable look-and-feel, allowing developers to change the appearance of the application easily.
+
+=>In summary, Swing provides a more modern and flexible event-handling mechanism compared to AWT. The resulting appearances of Swing applications are generally more consistent and customizable across different platforms than AWT applications. The lightweight nature of Swing components contributes to a smoother and more responsive user interface.
