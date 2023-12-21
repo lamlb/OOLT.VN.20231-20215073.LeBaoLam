@@ -66,7 +66,6 @@ public class CompactDisc extends Disc implements Playable{
 	}
 
 	public CompactDisc(String title, String category, String artist, String director, int length, float cost) {
-		// TODO Auto-generated constructor stub
 		super(title, category, cost, director);
 		this.artist = artist;
 		this.length = length;
