@@ -155,21 +155,17 @@ public class StoreManagerScreen extends JFrame {
     }
     public static void main(String[] args) {
         Store store = new Store();
-        Media media1 = new DigitalVideoDisc(1,"Harry Potter and Chamber of Secret", "Harry Potter", "T", 120, 3.0f);
+        Media media1 = new DigitalVideoDisc("Harry Potter and Chamber of Secret", "Harry Potter", "T", 120, 3.0f);
 		Media media2 = new CompactDisc(55,"CD2","Ffssa",12);
 		Media media3 = new CompactDisc(9,"CD3","fs",77);
 		Media media4 = new CompactDisc(5,"CD4","f",5);
-		Media media5 = new Book(3,"Doraemon");
-		Media media6 = new Book(8,"Giai tich 3");
-		Media media7 = new DigitalVideoDisc("DVD 3");
+		Media media5 = new DigitalVideoDisc("DVD 3");
 		
 		store.addMedia(media1);
 		store.addMedia(media2);
 		store.addMedia(media3);
 		store.addMedia(media4);
 		store.addMedia(media5);
-		store.addMedia(media6);
-		store.addMedia(media7);
         StoreManagerScreen storeManagerScreen = new StoreManagerScreen(store);
     }
 }

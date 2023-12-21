@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -8,6 +8,24 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Option">
+               <items>
+                  <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Add Book" />
+                        <MenuItem mnemonicParsing="false" text="Add CD" />
+                        <MenuItem mnemonicParsing="false" text="Add DVD" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="View Store" />
+                  <MenuItem mnemonicParsing="false" text="View Cart" onAction="#btnViewCartPressed" fx:id="viewCartMenuItem" />
+                  
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="AIMS" textFill="#004cff">

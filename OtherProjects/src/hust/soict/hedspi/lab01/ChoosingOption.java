@@ -1,4 +1,4 @@
-package hust.soict.hespi.lab01;
+package hust.soict.hedspi.lab01;
 import javax.swing.JOptionPane;
 public class ChoosingOption{
     public static void main(String[] args){

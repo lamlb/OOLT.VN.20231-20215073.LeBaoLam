@@ -52,7 +52,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemScreen {
             String category = categoryField.getText();
             float cost = Float.parseFloat(costField.getText());
 
-            DigitalVideoDisc newDVD = new DigitalVideoDisc(id, title, category, cost);
+            DigitalVideoDisc newDVD = new DigitalVideoDisc(title, category, cost);
             store.addMedia(newDVD);
 
             updateStoreManagerScreen();
