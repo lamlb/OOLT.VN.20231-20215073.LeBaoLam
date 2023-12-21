@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -20,7 +21,8 @@
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" text="View Store" />
-                  <MenuItem mnemonicParsing="false" text="View Cart" onAction="#btnViewCartPressed" fx:id="viewCartMenuItem" />
+                  <MenuItem fx:id="viewCartMenuItem" mnemonicParsing="false" onAction="#btnView" text="View Cart" />
+
                   
                </items>
           </Menu>

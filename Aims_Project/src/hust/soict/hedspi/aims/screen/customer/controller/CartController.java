@@ -148,7 +148,7 @@ public class CartController {
                     updateButtonBar(newValue);
                 });
 
-        // Add listener for filter text changes
+        
         tfFilter.textProperty()
                 .addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
                     showFilteredMedia(newValue);
