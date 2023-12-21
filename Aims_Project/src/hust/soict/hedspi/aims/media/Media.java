@@ -1,77 +1,135 @@
 package hust.soict.hedspi.aims.media;
-
+import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.Objects;
+
 
 public abstract class Media {
-
-	private int id;
 	private String title;
 	private String category;
 	private float cost;
+	private LocalDate dateAdded;
+	private int id;
+	private static int nbMedia = 1;
 	
-	public static final Comparator<Media> COMPARE_BY_TITLE_COST =
-			new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 	
-	public static final Comparator<Media> COMPARE_BY_COST_TITLE =
-			new MediaComparatorByCostTitle();
+	public boolean equals(Object obj) throws ClassCastException {
+        if (obj instanceof Media) {
+            try {
+                Media obj2 = (Media) obj;
+                if (obj2.getTitle() == this.title) {
+                    return true;
+                }
+            } catch (ClassCastException e) {
+                throw e;
+            }
+        }
+        return false;
+    }
+	
+	public int compareTo(Media obj) throws NullPointerException {
+        try {
+            for (int i = 0; i < this.title.length() && i < obj.getTitle().length(); i++) {
+                if ((int) this.title.charAt(i) == (int) obj.getTitle().charAt(i)) {
+                    continue;
+                } else {
+                    return ((int) this.title.charAt(i) - (int) obj.getTitle().charAt(i));
+                }
+            }
+            if (!(this.title.length() == obj.getTitle().length())) {
+                return (this.title.length() - obj.getTitle().length());
+            }
+            for (int i = 0; i < this.category.length() && i < obj.getCategory().length(); i++) {
+                if ((int) this.category.charAt(i) == (int) obj.getCategory().charAt(i)) {
+                    continue;
+                } else {
+                    return ((int) this.category.charAt(i) - (int) obj.getTitle().charAt(i));
+                }
+            }
+            if (!(this.category.length() == obj.getCategory().length())) {
+                return (this.category.length() - obj.getCategory().length());
+            }
+            return 0;
+        } catch (NullPointerException e) {
+            throw e;
+        }
+    }
+	
+	public boolean search(String title) {
+		return this.title.toLowerCase().contains(title.toLowerCase());
+	}
+
+
+	public Media(String title, String category, float cost) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+		this.id = nbMedia;
+		nbMedia += 1;
+	}
+
+
+	public Media(String title, String category) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.id = nbMedia;
+		nbMedia += 1;
+	}
+
+
+	public Media(String title) {
+		super();
+		this.title = title;
+		this.id = nbMedia;
+		nbMedia += 1;
+	}
+
+
+	public Media(String title, String category, float cost, int id) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+		this.id = id;
+		nbMedia += 1;
+	}
 
 	public int getId() {
 		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
 		return title;
 	}
 
+
 	public String getCategory() {
 		return category;
 	}
+
 
 	public float getCost() {
 		return cost;
 	}
 
-	public Media(int id, String title) {
-		super();
-		this.id = id;
-		this.title = title;
-	}
 
-	public Media(int id, String title, String category, float cost) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
+	public LocalDate getDateAdded() {
+		return dateAdded;
 	}
-
-	public Media(String string) {
-		super();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Media other = (Media) obj;
-		return Objects.equals(title, other.title);
-	}
-
-	@Override
-	public String toString() {
-		return "Media [" + id + " - " + title + " - " + category + " - " + cost + "$]\n";
-	}
-
-    public void setTitle(String title) {
-    }
 	
+	public void setDateAdded(LocalDate date) {
+		this.dateAdded = date;
+	}
+	
+	public abstract String getType();
+	
+	public abstract String getDetails();
+	
+	public String toString() {
+		return this.getDetails();
+	}
+
 }

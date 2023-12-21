@@ -88,7 +88,7 @@ public class MediaStore extends JPanel {
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
 
-            playableMedia.play();
+            
         }
     }
 }
